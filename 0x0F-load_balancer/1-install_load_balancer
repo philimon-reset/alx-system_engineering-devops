@@ -12,5 +12,5 @@ sudo apt-get install haproxy=2.0.\* -y
         sudo echo -e "/tserver 141-web-01 35.185.27.173"
         sudo echo -e "/tserver 141-web-02 34.74.146.120"
         
-} >> /etc/haproxy/haproxy.cfg
+} >> "/etc/haproxy/haproxy.cfg"
 sudo service haproxy restart
