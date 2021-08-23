@@ -7,7 +7,7 @@ package {'nginx':
 
 file_line {'add header':
   path => '/etc/nginx/sites-available/default',
-  after => 'root /var/www/html;',
+  after => 'server_name _;',
   line => "\\\n\tadd_header X-Served-By \$HOSTNAME;\n",
 }
 
