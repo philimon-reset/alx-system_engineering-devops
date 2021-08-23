@@ -12,7 +12,7 @@ ERRORREDIRECT="\n\terror_page 404 /404error.html;\n\tlocation = /404error.html {
 apt-get -y update
 apt-get -y install nginx
 ufw allow 'Nginx HTTP'
-sudi echo "$STRING" > /var/www/html/index.nginx-debian.html
+sudo echo "$STRING" > /var/www/html/index.nginx-debian.html
 sed -i "37i\ $REDIRECT" "$FILE"
 
 echo "$FOUR" > "$ERRORFILE"
