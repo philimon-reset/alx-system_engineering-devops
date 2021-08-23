@@ -1,0 +1,11 @@
+listen http-in /etc/haproxy/haproxy.cfg
+/tbind *:80 /etc/haproxy/haproxy.cfg
+/tserver 141-web-01 35.185.27.173 /etc/haproxy/haproxy.cfg
+/tserver 141-web-02 34.74.146.120 /etc/haproxy/haproxy.cfg
+listen http-in /etc/haproxy/haproxy.cfg
+listen http-in /etc/haproxy/haproxy.cfg
+/tbind *:80 /etc/haproxy/haproxy.cfg
+balance roundrobin /etc/haproxy/haproxy.cfg
+/tserver 141-web-01 35.185.27.173 /etc/haproxy/haproxy.cfg
+/tserver 141-web-02 34.74.146.120 /etc/haproxy/haproxy.cfg
+listen http-in /etc/haproxy/haproxy.cfg
