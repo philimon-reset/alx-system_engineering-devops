@@ -6,11 +6,12 @@ sudo add-apt-repository ppa:vbernat/haproxy-2.0 -y
 sudo apt-get update -y
 sudo apt-get install haproxy=2.0.\* -y
 {
-        sudo echo -e "listen http-in"
-        sudo echo -e "/tbind *:80"
-        sudo echo -e "balance roundrobin"
-        sudo echo -e "/tserver 141-web-01 35.185.27.173"
-        sudo echo -e "/tserver 141-web-02 34.74.146.120"
+        echo -e "listen http-in"
+        echo -e "/tbind *:80"
+        echo -e "balance roundrobin"
+        echo -e "/tserver 141-web-01 35.185.27.173"
+        echo -e "/tserver 141-web-02 34.74.146.120"
         
-} >> "/etc/haproxy/haproxy.cfg"
+} >> "sudo /etc/haproxy/haproxy.cfg"
+
 sudo service haproxy restart
