@@ -8,7 +8,7 @@ FILE="/etc/nginx/sites-available/default"
 ERRORFILE="/usr/share/nginx/html/404error.html"
 FOUR="Ceci n'est pas une page"
 ERRORREDIRECT="\n\terror_page 404 /404error.html;\n\tlocation = /404error.html {\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t}\n"
-HEADER="\n\tlocation some-location {\n\t\tadd_header X-Served-By $HOSTNAME;\n\t}\n"
+HEADER="\n\tlocation some-location {\n\t\tadd_header X-Served-By \$HOSTNAME;\n\t}\n"
 
 apt-get -y update
 apt-get -y install nginx
