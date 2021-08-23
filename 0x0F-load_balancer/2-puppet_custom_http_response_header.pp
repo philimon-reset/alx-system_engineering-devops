@@ -24,5 +24,5 @@ file_line {'add header':
 
 service {'nginx':
   ensure  => running,
-  enable => True
+  enable => True,
 }
