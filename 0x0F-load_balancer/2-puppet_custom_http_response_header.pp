@@ -12,7 +12,7 @@ package {'nginx':
 file_line {'add header':
   path => '/etc/nginx/sites-available/default',
   after => 'root /var/www/html;',
-  line => "\tadd_header X-Served-By \$HOSTNAME;",
+  line => '\n\tadd_header X-Served-By $hostname;\n',
 }
 
 exec {'restart':
