@@ -17,7 +17,7 @@ file_line { 'configure redirect':
 
 file_line {'add header':
   path => '/etc/nginx/sites-available/default',
-  after => 'root /var/www/html;',
+  after  => 'listen 80 default_server;',
   line => 'add_header X-Served-By $hostname;',
 }
 
