@@ -13,10 +13,10 @@ file_line {'add header':
   line => "\n\tadd_header X-Served-By \$hostname;\n",
 }
 
-service {'nginx':
-  ensure  => running,
-}
-
 exec {'restart':
   command => '/usr/sbin/service nginx restart',
+}
+
+service {'nginx':
+  ensure  => running,
 }
