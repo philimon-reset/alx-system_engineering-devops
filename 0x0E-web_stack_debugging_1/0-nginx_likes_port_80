@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # automate your fix.
-available="/etc/nginx/sites-enabled/"
+available="/etc/nginx/sites-enabled/default"
 enable="/etc/nginx/sites-enabled/default"
 sudo rm  $enable; ln -s $available $enable
