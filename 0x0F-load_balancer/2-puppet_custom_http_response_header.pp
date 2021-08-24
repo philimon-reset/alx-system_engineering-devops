@@ -14,7 +14,7 @@ file_line { 'add HTTP header':
 }
 
 exec {'restart':
-	command => '/usr/sbin/service nginx restart'
+	command => '/usr/sbin/service nginx restart',
 }
 
 service { 'nginx':
