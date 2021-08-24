@@ -1,5 +1,9 @@
 # setup nginx
 
+exec {'update':
+  command => '/usr/bin/apt-get update',
+}
+
 package {'nginx':
   ensure  => installed,
 }
@@ -20,6 +24,9 @@ file_line {'add header':
   line => "add_header X-Served-By \$HOSTNAME;",
 }
 
+exec {'restart':
+  command => '/usr/sbin/service nginx start',
+}
 
 service {'nginx':
   ensure  => running,
