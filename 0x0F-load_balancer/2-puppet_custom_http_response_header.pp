@@ -3,16 +3,16 @@
 exec {'update':
 	command => '/usr/bin/apt-get update',
 }
-package { 'nginx':
-	ensure  => installed,
-}
-file_line { 'add HTTP header':
-	ensure => 'present',
-	path   => '/etc/nginx/sites-available/default',
-	after  => 'server_name _;',
-	line   => "\tadd_header X-Served-By \$hostname;\n",
+
+package {'nginx':
+  ensure  => installed,
 }
 
-service { 'nginx':
-        ensure  => 'running',
+file_line {'add header':
+  path => '/etc/nginx/sites-available/default',
+  after => 'server_name _;',
+  line => "\n\tadd_header X-Served-By \$hostname;\n",
+}
+
+exec {'/etc/init.d/nginx restart':
 }
