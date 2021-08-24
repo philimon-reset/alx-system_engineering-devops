@@ -32,5 +32,4 @@ exec {'restart':
 
 service {'nginx':
   ensure  => running,
-  enable => True,
 }
