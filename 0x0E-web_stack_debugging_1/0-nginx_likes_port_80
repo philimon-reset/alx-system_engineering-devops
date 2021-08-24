@@ -2,4 +2,4 @@
 # automate your fix.
 available="/etc/nginx/sites-enabled/default"
 enable="/etc/nginx/sites-enabled/default"
-sudo rm  $enable; ln -s $available $enable
+sudo rm  $enable; ln -s $available $enable; service nginx enable
