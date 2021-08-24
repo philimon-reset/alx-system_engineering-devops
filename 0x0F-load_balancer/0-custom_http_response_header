@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# configures an Ubuntu machine with nginx
+# new server new errors
 FILE="/etc/nginx/sites-available/default"
 ERRORFILE="/usr/share/nginx/html/404error.html"
 
