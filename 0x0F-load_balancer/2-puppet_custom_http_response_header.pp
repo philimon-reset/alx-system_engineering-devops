@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 # setup nginx
 
 exec {'update':
