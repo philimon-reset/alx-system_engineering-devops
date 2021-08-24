@@ -9,8 +9,8 @@ package { 'nginx':
 file_line { 'add HTTP header':
 	ensure => 'present',
 	path   => '/etc/nginx/sites-available/default',
-	after  => 'listen 80 default_server;',
-	line   => 'add_header X-Served-By $hostname;',
+	after  => 'server_name _;',
+	line   => "\tadd_header X-Served-By \$hostname;\n",
 }
 
 service { 'nginx':
