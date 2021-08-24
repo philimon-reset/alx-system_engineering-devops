@@ -15,10 +15,6 @@ file_line {'add header':
   line => '	add_header X-Served-By $hostname;',
 }
 
-exec {'restart':
-  command => '/usr/sbin/service nginx start',
-}
-
 service {'nginx':
   ensure  => running,
 }
