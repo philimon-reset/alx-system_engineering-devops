@@ -1,4 +1,6 @@
-# setup nginx
+# Manifest that install Nginx and configures:
+#   a simple default page.
+#   a custom header with the server hostname.
 
 package { 'nginx':
   ensure  => installed,
