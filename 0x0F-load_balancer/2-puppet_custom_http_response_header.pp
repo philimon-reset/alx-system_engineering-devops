@@ -16,3 +16,7 @@ file_line {'add header':
 service {'nginx':
   ensure  => running,
 }
+
+exec {'restart':
+  command => '/usr/sbin/service nginx restart',
+}
