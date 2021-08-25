@@ -2,4 +2,4 @@
 # automate your fix.
 ln -sf "/etc/nginx/sites-available/default" "/etc/nginx/sites-enabled/default"
 service nginx restart
-pkill -9 ngnix
+kill -9 $(ps -aux | pgrep "nginx" | head -1)
