@@ -2,14 +2,16 @@
 mkdir System_engineering_and_Devops
 mv * System_engineering_and_Devops
 git remote remove origin
-cd System_engineering_and_Devops
-git init
-git remote add origin "https://github.com/philimon-reset/alx-system_engineering-devops"
-git pull origin master
-cd ..
 mkdir AirBnB_Clone_V2
 cd AirBnB_Clone_V2
 git init
 git remote add origin "https://github.com/philimon-reset/AirBnB_clone_v2"
+git pull origin master
+cd ..
+cd System_engineering_and_Devops
+git init
+git remote add origin "https://github.com/philimon-reset/alx-system_engineering-devops"
+git add .
+git commit -m "lazy"
 git pull origin master
 cd ..
