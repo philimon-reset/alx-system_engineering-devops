@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# automate your fix.
+available="/etc/nginx/sites-available/default"
+enable="/etc/nginx/sites-enabled/default"
+sudo rm  "$enable"
+ln -s "$available" "$enable"
+service nginx restart
