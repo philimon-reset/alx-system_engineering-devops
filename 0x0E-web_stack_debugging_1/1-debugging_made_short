@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# automate your fix.
+ln -sf "/etc/nginx/sites-available/default" "/etc/nginx/sites-enabled/default"
+service nginx restart
+kill -9 "$(ps -aux | pgrep "nginx" | head -1)"
