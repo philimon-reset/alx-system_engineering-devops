@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-sudo sed -i '1,5 s/user/user nginx;/gi' /etc/nginx/nginx.conf
+sudo sed -i '1,5 s/#user www-data;/user nginx;/i' /etc/nginx/nginx.conf
 sudo sed -i '22i \\tlisten\t8080' /etc/nginx/sites-available/default
 sudo service nginx restart
