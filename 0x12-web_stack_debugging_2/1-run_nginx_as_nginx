@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# nginx user change
 sudo sed -i '1i user nginx;' /etc/nginx/nginx.conf
-sudo sed -i '21,23i \\tlisten *:8080;' /etc/nginx/sites-available/default
+sudo sed -i '21 s/listen 80 default_server;/\\tlisten 8080 default_server;/"' /etc/nginx/sites-available/default
+sudo sed -i '22 s/listen [::]:80 default_server ipv6only=on;/\\tlisten [::]:8080 default_server ipv6only=on;/"' /etc/nginx/sites-available/default
 sudo service nginx restart
