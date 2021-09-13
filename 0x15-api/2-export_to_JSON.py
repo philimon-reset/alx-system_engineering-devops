@@ -1,2 +1,3 @@
 #!/usr/bin/python3
-import requests
+"""fetche https://intranet.hbtn.io/status"""
+from urllib import request
