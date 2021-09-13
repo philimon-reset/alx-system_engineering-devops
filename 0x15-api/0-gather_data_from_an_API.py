@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """fetche https://intranet.hbtn.io/status"""
+
 from requests import get
 from sys import argv
 
