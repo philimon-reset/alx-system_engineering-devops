@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """fetche https://intranet.hbtn.io/status"""
+
 from csv import DictWriter, QUOTE_ALL
 from requests import get
 from sys import argv
