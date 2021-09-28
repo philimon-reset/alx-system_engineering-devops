@@ -5,7 +5,6 @@ import requests
 
 def count_words(subreddit, word_list, afters="", before="", count={}):
     """ function to get top hot posts
-
     Args:
     subreddit (string): subreddit queried
 """
@@ -15,7 +14,7 @@ def count_words(subreddit, word_list, afters="", before="", count={}):
     main = requests.get(web,
                         headers=headers, allow_redirects=False)
     before = main.json()['data']['before']
-    if (main.status_code == 404):
+    if (main.json().get('error') == 404):
         return None
     if (before is None and afters is None):
         for C in word_list:
