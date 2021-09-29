@@ -2,13 +2,6 @@
 """ request the top ten hot posts """
 import requests
 
-def case(data):
-    seen, result = set(), []
-    for item in data:
-        if item.lower() not in seen:
-            seen.add(item.lower())
-            result.append(item)
-    return result
 
 def count_words(subreddit, word_list, afters="", before="", count={}):
     """ function to get top hot posts
@@ -24,9 +17,8 @@ def count_words(subreddit, word_list, afters="", before="", count={}):
     before = main.json()['data']['before']
     if (main.status_code == 404):
         return None
-    word_l = case(word_list)
     if (before is None and afters is None):
-        for C in word_l:
+        for C in word_list:
             for post in main.json()['data']['children']:
                 hold = [x.lower() for x in post['data']['title'].split()]
                 if C in hold:
@@ -37,14 +29,14 @@ def count_words(subreddit, word_list, afters="", before="", count={}):
             print("{}: {}".format(words, numbers))
     elif (afters is not None):
         afters = main.json()['data']['after']
-        for C in word_l:
+        for C in word_list:
             for post in main.json()['data']['children']:
                 hold = [x.lower() for x in post['data']['title'].split()]
                 if C in hold:
                     if count.get(C) is None:
                         count[C] = 0
                     count[C] += hold.count(C.lower())
-        count_words(subreddit, word_l, afters, count)
+        count_words(subreddit, word_list, afters, count)
     else:
         for words, numbers in count.items():
             print("{}: {}".format(words, numbers))
