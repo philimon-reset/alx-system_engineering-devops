@@ -9,7 +9,7 @@ def top_ten(subreddit):
     Args:
         subreddit (string): subreddit queried
     """
-    web = 'https://www.reddit.com/r/{}/top.json'.format(subreddit)
+    web = 'https://www.reddit.com/r/{}/hot.json?limit=10'.format(subreddit)
     headers = {'User-Agent': 'MyAPI/0.1'}
     main = requests.get(web,
                         headers=headers,
