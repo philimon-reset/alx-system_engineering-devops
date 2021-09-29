@@ -12,7 +12,8 @@ def top_ten(subreddit):
     web = 'https://www.reddit.com/r/{}/top.json?limit=10'.format(subreddit)
     headers = {'User-Agent': 'MyAPI/0.1'}
     main = requests.get(web,
-                        headers=headers)
+                        headers=headers,
+                        allow_redirects=False)
     if (main.json().get('error') == 404):
         print(None)
     else:

@@ -3,18 +3,21 @@
 import requests
 
 
-def recurse(subreddit, hot_list=[]):
+def recurse(subreddit, hot_list=[], afters=""):
     """ function to get top hot posts
 
     Args:
         subreddit (string): subreddit queried
     """
-    web = 'https://www.reddit.com/r/{}/top.json?limit=10'.format(subreddit)
+    web = 'https://www.reddit.com/r/{}/hot.json?after={}'.format(subreddit, afters)
     headers = {'User-Agent': 'MyAPI/0.1'}
     main = requests.get(web,
-                        headers=headers)
-    if (len(hot_list) < 10):
-        hot_list.append(main.json()['data']['children'][len(hot_list)]['data']['title'])
-        recurse(subreddit, hot_list)
-    else:
-        return hot_list
+                        headers=headers, allow_redirects=False)
+    if (main.json().get('error') == 404):
+        return None
+    if (afters != None):
+        afters = main.json()['data']['after']
+        for post in main.json()['data']['children']:
+            hot_list.append(post['data']['title'])
+        recurse(subreddit, hot_list, afters)
+    return hot_list
