@@ -13,8 +13,8 @@ def recurse(subreddit, hot_list=[]):
     headers = {'User-Agent': 'MyAPI/0.1'}
     main = requests.get(web,
                         headers=headers)
-    try:
-	    for post in main.json()['data']['children']:
-		    print(post['data']['title'])
-    except:
-        return None
+    if (len(hot_list) < 10):
+        hot_list.append(main.json()['data']['children'][len(hot_list)]['data']['title'])
+        recurse(subreddit, hot_list)
+    else:
+        return hot_list

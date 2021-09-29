@@ -13,7 +13,7 @@ def number_of_subscribers(subreddit):
     headers = {'User-Agent': 'MyAPI/0.1'}
     main = requests.get(web,
                         headers=headers)
-    try:
-        return main.json()['data']['subscribers']
-    except:
+    if (main.json().get('error') is not None):
         return 0
+    else:
+        return main.json()['data']['subscribers']

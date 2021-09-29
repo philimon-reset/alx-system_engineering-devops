@@ -13,8 +13,8 @@ def top_ten(subreddit):
     headers = {'User-Agent': 'MyAPI/0.1'}
     main = requests.get(web,
                         headers=headers)
-    try:
+    if (main.json().get('error') == 404):
+        print(None)
+    else:
         for post in main.json()['data']['children']:
             print(post['data']['title'])
-    except:
-        return None
