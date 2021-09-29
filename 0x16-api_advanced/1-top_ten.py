@@ -14,7 +14,7 @@ def top_ten(subreddit):
     main = requests.get(web,
                         headers=headers,
                         allow_redirects=False)
-    if (main.json().get('error') == 404):
+    if (main.status_code == 404):
         print(None)
     else:
         for post in main.json()['data']['children']:

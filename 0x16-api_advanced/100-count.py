@@ -2,6 +2,13 @@
 """ request the top ten hot posts """
 import requests
 
+def case(data):
+    seen, result = set(), []
+    for item in data:
+        if item.lower() not in seen:
+            seen.add(item.lower())
+            result.append(item)
+    return result
 
 def count_words(subreddit, word_list, afters="", before="", count={}):
     """ function to get top hot posts
