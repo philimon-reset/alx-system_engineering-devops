@@ -1,5 +1,15 @@
 # stupid rename
-file { '/var/www/html/wp-includes/class-wp-locale.php':
-    ensure => file,
-    source => '/var/www/html/wp-includes/class-wp-locale.phpp',
+
+package {'nginx':
+  ensure  => installed,
+}
+
+file { '/etc/default/nginx':
+    ensure  => file,
+    content => 'ULIMIT="-n 15000"',
+}
+
+exec { 'restart':
+    command => 'service nginx restart',
+    path    =>  [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ]
 }
