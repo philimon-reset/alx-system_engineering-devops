@@ -1,9 +1,5 @@
 # stupid rename
 
-package {'nginx':
-  ensure  => installed,
-}
-
 file { '/etc/default/nginx':
     ensure  => file,
     content => 'ULIMIT="-n 15000"',
