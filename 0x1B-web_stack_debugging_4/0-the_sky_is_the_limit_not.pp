@@ -7,5 +7,5 @@ file { '/etc/default/nginx':
 
 exec { 'restart':
     command => 'service nginx restart',
-    path    =>  [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ]
+    path    =>  [ '/usr/sbin/service', '/sbin/' , '/usr/bin/', '/usr/sbin/' ]
 }
